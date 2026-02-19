@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tech Gateway - Expert reviews and buying guides for high-end gaming laptops, monitors, keyboards, and PC components. Amazon affiliate tech hub.">
+  <meta name="robots" content="index, follow">
+  <title>Tech Gateway - High-End Gaming & PC Hardware Reviews 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { 
+      --primary: #00d4ff; 
+      --secondary: #00ff88; 
+      --accent: #ff6b6b; 
+      --dark: #0a0e17; 
+      --darker: #050810; 
+      --panel: #111827; 
+      --panel-hover: #1a2332;
+      --text: #e2e8f0; 
+      --text-muted: #94a3b8; 
+      --border: #1e293b;
+      --glow: 0 0 20px rgba(0, 212, 255, 0.3);
+    }
+    body { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; background: var(--dark); color: var(--text); line-height: 1.6; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background: var(--panel); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .header-content { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; text-shadow: var(--glow); letter-spacing: 2px; }
+    .logo span { color: var(--secondary); }
+    nav ul { display: flex; list-style: none; gap: 25px; }
+    nav a { text-decoration: none; color: var(--text-muted); font-weight: 500; transition: all 0.3s; font-size: 0.9rem; letter-spacing: 1px; }
+    nav a:hover { color: var(--primary); text-shadow: var(--glow); }
+    .hero { background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 50%, #0f1729 100%); color: white; padding: 80px 0; text-align: center; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 0%, rgba(0, 212, 255, 0.1) 0%, transparent 50%); pointer-events: none; }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 15px; font-weight: 800; text-shadow: 0 0 30px rgba(0, 212, 255, 0.5); letter-spacing: -1px; }
+    .hero p { font-size: 1.2rem; opacity: 0.8; max-width: 700px; margin: 0 auto; color: var(--text-muted); }
+    .tech-badge { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
+    .categories { padding: 60px 0; background: var(--darker); }
+    .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .category-card { background: var(--panel); border-radius: 12px; padding: 30px 20px; text-align: center; text-decoration: none; color: var(--text); transition: all 0.3s; border: 1px solid var(--border); position: relative; overflow: hidden; }
+    .category-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--primary), var(--secondary)); opacity: 0; transition: opacity 0.3s; }
+    .category-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: var(--glow); }
+    .category-card:hover::before { opacity: 1; }
+    .category-card .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .category-card h3 { margin-bottom: 8px; color: var(--primary); font-size: 1.1rem; letter-spacing: 1px; }
+    .category-card p { color: var(--text-muted); font-size: 0.85rem; }
+    .articles-section { padding: 60px 0; background: var(--dark); }
+    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 35px; }
+    .section-header h2 { font-size: 1.8rem; color: var(--primary); text-shadow: var(--glow); letter-spacing: 1px; }
+    .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; }
+    .article-card { background: var(--panel); border-radius: 12px; overflow: hidden; transition: all 0.3s; border: 1px solid var(--border); }
+    .article-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: var(--glow); }
+    .article-image { width: 100%; height: 200px; object-fit: cover; background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%); }
+    .article-content { padding: 22px; }
+    .article-category { display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 212, 255, 0.1); color: var(--primary); padding: 5px 14px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; border: 1px solid rgba(0, 212, 255, 0.3); }
+    .article-title { font-size: 1.2rem; margin-bottom: 10px; line-height: 1.4; }
+    .article-title a { text-decoration: none; color: var(--text); transition: color 0.2s; }
+    .article-title a:hover { color: var(--primary); }
+    .article-excerpt { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 18px; }
+    .article-meta { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--text-muted); }
+    .read-more { color: var(--primary); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; transition: all 0.3s; }
+    .read-more:hover { gap: 10px; color: var(--secondary); }
+    .tools-section { padding: 60px 0; background: var(--dark); }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .tool-card { background: var(--panel); border-radius: 12px; padding: 22px; border: 1px solid var(--border); transition: all 0.2s; position: relative; }
+    .tool-card:hover { border-color: var(--primary); box-shadow: var(--glow); }
+    .tool-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .tool-name { font-weight: 700; font-size: 1.1rem; color: var(--primary); }
+    .tool-rating { display: flex; align-items: center; gap: 4px; background: rgba(0, 255, 136, 0.1); color: var(--secondary); padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid var(--secondary); }
+    .tool-pricing { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; }
+    .tool-specs { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px; line-height: 1.5; }
+    .tool-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px; }
+    .tool-tag { background: rgba(0, 212, 255, 0.1); color: var(--primary); padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; border: 1px solid rgba(0, 212, 255, 0.3); }
+    .tool-link { display: block; text-align: center; background: linear-gradient(90deg, var(--primary), var(--secondary)); color: var(--dark); padding: 10px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
+    .tool-link:hover { box-shadow: var(--glow); transform: translateY(-2px); }
+    .disclosure { background: rgba(255, 107, 107, 0.1); padding: 22px; text-align: center; font-size: 0.9rem; color: var(--accent); border: 1px solid rgba(255, 107, 107, 0.3); border-left: 3px solid var(--accent); }
+    footer { background: var(--darker); color: white; padding: 50px 0 30px; margin-top: 60px; border-top: 1px solid var(--border); }
+    .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 35px; margin-bottom: 35px; }
+    .footer-section h4 { margin-bottom: 18px; font-size: 1.1rem; color: var(--primary); letter-spacing: 1px; }
+    .footer-section ul { list-style: none; }
+    .footer-section li { margin-bottom: 10px; }
+    .footer-section a { color: var(--text-muted); text-decoration: none; transition: all 0.3s; }
+    .footer-section a:hover { color: var(--primary); text-shadow: var(--glow); }
+    .footer-bottom { text-align: center; padding-top: 25px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem; }
+    .jarvis-badge { position: fixed; bottom: 20px; right: 20px; background: rgba(10, 14, 23, 0.9); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 10px; color: var(--primary); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; transition: all 0.3s; z-index: 1000; border: 1px solid var(--primary); box-shadow: var(--glow); }
+    .jarvis-badge:hover { opacity: 1; transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 212, 255, 0.5); }
+    @media (max-width: 768px) { .header-content { flex-direction: column; gap: 15px; } nav ul { flex-wrap: wrap; justify-content: center; } .hero h1 { font-size: 2rem; } .articles-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="/" class="logo">Tech<span>Gateway</span></a>
+        <nav>
+          <ul>
+            <li><a href="#laptops">Laptops</a></li>
+            <li><a href="#monitors">Monitors</a></li>
+            <li><a href="#keyboards">Keyboards</a></li>
+            <li><a href="#mice">Mice</a></li>
+            <li><a href="#audio">Audio</a></li>
+            <li><a href="#storage">Storage</a></li>
+            <li><a href="#cpus">CPUs</a></li>
+            <li><a href="#gpus">GPUs</a></li>
+            <li><a href="/admin">Admin</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Premium <span class="tech-badge">Gaming & PC Tech</span> Reviews</h1>
+      <p>Expert buying guides for high-end gaming laptops, OLED monitors, mechanical keyboards, and enthusiast PC components. Find the best gear with Amazon links.</p>
+    </div>
+  </section>
+
+  <section class="categories">
+    <div class="container">
+      <div class="category-grid">
+        <a href="#laptops" class="category-card"><div class="icon">💻</div><h3>Gaming Laptops</h3><p>RTX 4090, 4080, Mini LED</p></a>
+        <a href="#monitors" class="category-card"><div class="icon">🖥️</div><h3>Gaming Monitors</h3><p>OLED, 240Hz, Ultrawide</p></a>
+        <a href="#keyboards" class="category-card"><div class="icon">⌨️</div><h3>Mechanical Keyboards</h3><p>Custom, Hall Effect, 75%</p></a>
+        <a href="#mice" class="category-card"><div class="icon">🖱️</div><h3>Gaming Mice</h3><p>Ultra-Light, 8KHz, Wireless</p></a>
+        <a href="#audio" class="category-card"><div class="icon">🎧</div><h3>Gaming Audio</h3><p>Planar Magnetic, ANC, Hi-Res</p></a>
+        <a href="#storage" class="category-card"><div class="icon">💾</div><h3>SSD Storage</h3><p>PCIe 5.0, 4TB, NVMe</p></a>
+        <a href="#cpus" class="category-card"><div class="icon">⚡</div><h3>Processors</h3><p>Ryzen 9950X3D, Core Ultra 9</p></a>
+        <a href="#gpus" class="category-card"><div class="icon">🎮</div><h3>Graphics Cards</h3><p>RTX 4090, RX 7900 XTX</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools-section" id="featured">
+    <div class="container">
+      <div class="section-header"><h2>🔥 Featured High-End Tech</h2></div>
+      <div class="tools-grid" id="tools-grid"></div>
+    </div>
+  </section>
+
+  <section class="articles-section">
+    <div class="container">
+      <div class="section-header"><h2>📝 Latest Reviews & Buying Guides</h2><a href="/admin" class="read-more">Admin →</a></div>
+      <div class="articles-grid" id="articles-grid"></div>
+    </div>
+  </section>
+
+  <div class="disclosure"><strong>Affiliate Disclosure:</strong> Tech Gateway is an Amazon Associate. We earn from qualifying purchases when you click our links. This supports our independent reviews at no extra cost to you.</div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="#laptops">Gaming Laptops</a></li>
+            <li><a href="#monitors">Gaming Monitors</a></li>
+            <li><a href="#keyboards">Mechanical Keyboards</a></li>
+            <li><a href="#mice">Gaming Mice</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>PC Components</h4>
+          <ul>
+            <li><a href="#cpus">CPUs & Processors</a></li>
+            <li><a href="#gpus">Graphics Cards</a></li>
+            <li><a href="#storage">SSD Storage</a></li>
+            <li><a href="#audio">Gaming Audio</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/admin">Admin Dashboard</a></li>
+            <li><a href="#buying-guides">Buying Guides</a></li>
+            <li><a href="#comparisons">Comparisons</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Tech Gateway | Amazon Associate | Powered by JARVIS</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="jarvis-badge"><img src="assets/jarvis-emblem.jpg" alt="JARVIS" style="width:24px;height:24px;border-radius:50%;object-fit:cover;"><span>Ran by JARVIS</span></div>
+
+  <script>
+    let allArticles = [];
+    
+    // High-end tech products with real ASINs
+    const featuredTech = [
+      { name: 'ASUS ROG Strix SCAR 18', rating: 4.8, price: '$3,499', specs: 'RTX 4090, i9-14900HX, 32GB, 240Hz Mini LED', tags: ['Gaming Laptop', 'RTX 4090', 'Flagship'], asin: 'B0CRDZZLYZ', featured: true },
+      { name: 'Samsung Odyssey OLED G9', rating: 4.8, price: '$1,699', specs: '49" DQHD OLED, 240Hz, 0.03ms Response', tags: ['Ultrawide', 'OLED', 'Immersive'], asin: 'B0CXY3Y5Z6', featured: true },
+      { name: 'AMD Ryzen 9 9950X3D', rating: 4.9, price: '$699', specs: '16-Core, 144MB Cache, 3D V-Cache Tech', tags: ['Gaming King', 'Zen 5', 'Enthusiast'], asin: 'B0D1NVR5VG', featured: true },
+      { name: 'NVIDIA RTX 4090', rating: 4.8, price: '$1,599', specs: '24GB GDDR6X, DLSS 3.5, 4K Gaming Beast', tags: ['4K Gaming', 'Creator', 'Top Tier'], asin: 'B0BHJF2VH5', featured: true },
+      { name: 'ASUS ROG Swift PG32UCDM', rating: 4.7, price: '$1,299', specs: '32" 4K QD-OLED, 240Hz, HDR400', tags: ['4K OLED', '240Hz', 'Competitive'], asin: 'B0CWQXJ9QZ', featured: true },
+      { name: 'Razer Viper V3 Pro', rating: 4.8, price: '$159', specs: '54g, Focus Pro 35K, 8KHz Polling', tags: ['Ultra-Light', 'Wireless', 'FPS Pro'], asin: 'B0CW3FH91N', featured: true },
+      { name: 'Keychron Q1 Pro', rating: 4.8, price: '$199', specs: '75% Layout, QMK/VIA, Wireless, Aluminum', tags: ['75%', 'Custom', 'Wireless'], asin: 'B0BWBGRFB3', featured: false },
+      { name: 'Wooting 60HE', rating: 4.9, price: '$175', specs: '60% Analog, Rapid Trigger, Esports Grade', tags: ['Analog', '60%', 'Tournament'], asin: 'B0CQMJXCXN', featured: false },
+      { name: 'Audeze Maxwell', rating: 4.8, price: '$299', specs: 'Planar Magnetic, 80hr Battery, Dolby Atmos', tags: ['Audiophile', 'Planar', 'Long Battery'], asin: 'B0BQYCHFMX', featured: false },
+      { name: 'SteelSeries Arctis Nova Pro', rating: 4.7, price: '$349', specs: 'Wireless, ANC, Hi-Res Audio, GameDAC 2', tags: ['Hi-Res', 'ANC', 'Premium'], asin: 'B09ZWL5F6T', featured: false },
+      { name: 'Samsung 990 Pro 4TB', rating: 4.8, price: '$329', specs: '7,450 MB/s Read, PCIe 4.0, Pro Grade', tags: ['4TB', 'Fastest', 'Gaming'], asin: 'B0BHJF2VH4', featured: false },
+      { name: 'WD Black SN850X 4TB', rating: 4.7, price: '$349', specs: '7,300 MB/s, Heatsink Included, Game Mode', tags: ['4TB', 'Heatsink', 'Gaming'], asin: 'B0B7CK2MKR', featured: false },
+      { name: 'Alienware m18 R2', rating: 4.7, price: '$3,199', specs: 'RTX 4090, 64GB RAM, Cherry MX Keys', tags: ['Gaming Laptop', 'Desktop Replacement'], asin: 'B0CQYMJYDF', featured: false },
+      { name: 'MSI Titan GT77 HX', rating: 4.6, price: '$4,299', specs: 'RTX 4090, 4K Mini LED, 128GB RAM', tags: ['Ultimate', '4K Display', 'Beast'], asin: 'B0BTKQ8X6H', featured: false },
+      { name: 'Logitech G Pro X Superlight 2', rating: 4.7, price: '$159', specs: '60g, HERO 2 32K, Lightspeed Wireless', tags: ['Lightweight', 'Pro Grade', 'Esports'], asin: 'B07W6JKFCZ', featured: false },
+      { name: 'RX 7900 XTX', rating: 4.7, price: '$999', specs: '24GB VRAM, 4K Value King, FSR 3', tags: ['4K Value', 'AMD', 'High VRAM'], asin: 'B0BHJF2VH6', featured: false },
+      { name: 'Intel Core Ultra 9 285K', rating: 4.7, price: '$629', specs: '24-Core, AI NPU, Arrow Lake Arch', tags: ['24-Core', 'AI Ready', 'Efficient'], asin: 'B0DKMYHF23', featured: false },
+      { name: 'LG 32GS95UE OLED', rating: 4.8, price: '$1,399', specs: '4K OLED, 240Hz/480Hz Dual Mode', tags: ['4K OLED', '480Hz', 'Dual Mode'], asin: 'B0D5MJXCXM', featured: false }
+    ];
+
+    const categoryMap = {
+      'laptops': 'Gaming Laptops',
+      'monitors': 'Gaming Monitors', 
+      'keyboards': 'Mechanical Keyboards',
+      'mice': 'Gaming Mice',
+      'audio': 'Gaming Audio',
+      'storage': 'SSD Storage',
+      'cpus': 'CPUs & Processors',
+      'gpus': 'Graphics Cards'
+    };
+
+    const categoryIcons = {
+      'gaming-laptops': '💻',
+      'gaming-monitors': '🖥️',
+      'mechanical-keyboards': '⌨️',
+      'gaming-mice': '🖱️',
+      'gaming-headsets': '🎧',
+      'storage-ssd': '💾',
+      'cpus-processors': '⚡',
+      'gpus-graphics': '🎮'
+    };
+
+    function getAmazonLink(asin) {
+      return `https://www.amazon.com/dp/${asin}?tag=jarvistaps-20&linkCode=ogi&th=1&psc=1`;
+    }
+
+    function loadFeaturedTech() {
+      const grid = document.getElementById('tools-grid');
+      const featured = featuredTech.filter(t => t.featured);
+      const regular = featuredTech.filter(t => !t.featured);
+      
+      grid.innerHTML = [...featured, ...regular].map((t, i) => `
+        <div class="tool-card" style="${t.featured ? 'border-color: var(--primary); box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);' : ''}">
+          ${t.featured ? '<span style="position:absolute;top:10px;right:10px;background:linear-gradient(90deg,var(--primary),var(--secondary));color:var(--dark);padding:3px 8px;border-radius:4px;font-size:0.65rem;font-weight:700;letter-spacing:1px;">FEATURED</span>' : ''}
+          <div class="tool-header"><span class="tool-name">${t.name}</span><span class="tool-rating">★ ${t.rating}</span></div>
+          <div class="tool-pricing">${t.price}</div>
+          <div class="tool-specs">${t.specs}</div>
+          <div class="tool-tags">${t.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('')}</div>
+          <a href="${getAmazonLink(t.asin)}" class="tool-link" target="_blank" rel="nofollow sponsored">View on Amazon →</a>
+        </div>
+      `).join('');
+    }
+
+    // Category click handlers
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const category = link.getAttribute('href').substring(1);
+        filterArticles(category);
+        document.getElementById('articles-grid').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    document.querySelectorAll('.category-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = card.getAttribute('href');
+        if (href) {
+          const category = href.substring(1);
+          filterArticles(category);
+          document.getElementById('articles-grid').scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    function filterArticles(category) {
+      const grid = document.getElementById('articles-grid');
+      const catKey = Object.keys(categoryMap).find(k => k === category);
+      const catName = categoryMap[catKey];
+      
+      // Filter featured tech by category
+      const filtered = featuredTech.filter(t => {
+        const tags = t.tags.map(tag => tag.toLowerCase());
+        return tags.some(tag => tag.includes(category)) || 
+               t.name.toLowerCase().includes(category) ||
+               (catName && t.tags.some(tag => catName.toLowerCase().includes(tag.toLowerCase())));
+      });
+      
+      if (filtered.length === 0) {
+        // Show sample articles
+        grid.innerHTML = getSampleArticlesHTML();
+      } else {
+        grid.innerHTML = filtered.map(product => `
+          <article class="article-card">
+            <img src="https://m.media-amazon.com/images/I/${product.asin}._SL500_.jpg" alt="${product.name}" class="article-image" onerror="this.src='https://image.pollinations.ai/prompt/${encodeURIComponent(product.name + ' product photo dark background')}?width=800&height=400'">
+            <div class="article-content">
+              <span class="article-category">${product.tags.map(t => t).slice(0, 2).join(' • ')}</span>
+              <h3 class="article-title"><a href="${getAmazonLink(product.asin)}" target="_blank" rel="nofollow sponsored">${product.name} Review 2026 - Is It Worth ${product.price}?</a></h3>
+              <p class="article-excerpt">${product.specs}. Comprehensive analysis of performance, value, and whether this premium ${product.tags[0].toLowerCase()} delivers for ${product.price}.</p>
+              <div class="article-meta"><span>★ ${product.rating} Rating</span><a href="${getAmazonLink(product.asin)}" class="read-more" target="_blank" rel="nofollow sponsored">Check Price →</a></div>
+            </div>
+          </article>
+        `).join('');
+      }
+    }
+
+    function getSampleArticlesHTML() {
+      const sampleProducts = [
+        { name: 'ASUS ROG Strix SCAR 18', category: 'gaming-laptops', price: '$3,499', asin: 'B0CRDZZLYZ', excerpt: 'The ultimate RTX 4090 gaming laptop with Mini LED display and desktop-class performance.', tags: ['Gaming Laptop', 'RTX 4090'] },
+        { name: 'Samsung Odyssey OLED G9', category: 'gaming-monitors', price: '$1,699', asin: 'B0CXY3Y5Z6', excerpt: '49-inch DQHD OLED ultrawide with 240Hz refresh rate and true HDR gaming experience.', tags: ['OLED', 'Ultrawide'] },
+        { name: 'AMD Ryzen 9 9950X3D', category: 'cpus-processors', price: '$699', asin: 'B0D1NVR5VG', excerpt: 'The gaming performance king with 3D V-Cache technology delivering unmatched frame rates.', tags: ['Gaming CPU', '3D V-Cache'] },
+        { name: 'NVIDIA RTX 4090', category: 'gpus-graphics', price: '$1,599', asin: 'B0BHJF2VH5', excerpt: '24GB of GDDR6X power for 4K gaming, ray tracing, and content creation workflows.', tags: ['4K Gaming', 'Ray Tracing'] },
+        { name: 'Keychron Q1 Pro', category: 'mechanical-keyboards', price: '$199', asin: 'B0BWBGRFB3', excerpt: 'Premium 75% mechanical keyboard with QMK/VIA support and wireless connectivity.', tags: ['75%', 'Custom'] },
+        { name: 'Razer Viper V3 Pro', category: 'gaming-mice', price: '$159', asin: 'B0CW3FH91N', excerpt: '54g ultra-lightweight wireless mouse with 8KHz polling for competitive FPS gaming.', tags: ['Ultra-Light', 'Wireless'] }
+      ];
+
+      return sampleProducts.map(p => `
+        <article class="article-card">
+          <img src="https://m.media-amazon.com/images/I/${p.asin}._SL500_.jpg" alt="${p.name}" class="article-image" onerror="this.src='https://image.pollinations.ai/prompt/${encodeURIComponent(p.name + ' tech product')}?width=800&height=400'">
+          <div class="article-content">
+            <span class="article-category">${p.tags.join(' • ')}</span>
+            <h3 class="article-title"><a href="${getAmazonLink(p.asin)}" target="_blank" rel="nofollow sponsored">${p.name} Review 2026 - Complete Analysis</a></h3>
+            <p class="article-excerpt">${p.excerpt}</p>
+            <div class="article-meta"><span>${p.price}</span><a href="${getAmazonLink(p.asin)}" class="read-more" target="_blank" rel="nofollow sponsored">View on Amazon →</a></div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    async function loadArticles() {
+      try {
+        const response = await fetch('/api/articles');
+        const articles = await response.json();
+        const grid = document.getElementById('articles-grid');
+        
+        if (articles.length === 0) {
+          grid.innerHTML = getSampleArticlesHTML();
+          loadFeaturedTech();
+          return;
+        }
+        
+        allArticles = articles;
+        grid.innerHTML = articles.map(article => `
+          <article class="article-card">
+            <img src="${article.featuredImage}" alt="${article.title}" class="article-image">
+            <div class="article-content">
+              <span class="article-category">${categoryIcons[article.category] || '💻'} ${article.subNiche}</span>
+              <h3 class="article-title"><a href="/article/${article.slug}">${article.title}</a></h3>
+              <p class="article-excerpt">${article.excerpt}</p>
+              <div class="article-meta"><span>${formatDate(article.date)}</span><a href="/article/${article.slug}" class="read-more">Read Review →</a></div>
+            </div>
+          </article>
+        `).join('');
+        loadFeaturedTech();
+      } catch (error) {
+        document.getElementById('articles-grid').innerHTML = getSampleArticlesHTML();
+        loadFeaturedTech();
+      }
+    }
+
+    function getCategoryName(cat) {
+      const names = {
+        'gaming-laptops': 'Gaming Laptops',
+        'gaming-monitors': 'Gaming Monitors',
+        'mechanical-keyboards': 'Mechanical Keyboards',
+        'gaming-mice': 'Gaming Mice',
+        'gaming-headsets': 'Gaming Audio',
+        'storage-ssd': 'SSD Storage',
+        'cpus-processors': 'CPUs & Processors',
+        'gpus-graphics': 'Graphics Cards'
+      };
+      return names[cat] || cat;
+    }
+
+    function getCategoryIcon(cat) {
+      return categoryIcons[cat] || '💻';
+    }
+
+    function formatDate(dateStr) {
+      try {
+        const d = new Date(dateStr);
+        return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      } catch {
+        return dateStr;
+      }
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      loadArticles();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: #e2e8f0;
+    }
+    .container { text-align: center; padding: 40px; }
+    h1 { font-size: 2rem; margin-bottom: 16px; color: #38bdf8; }
+    p { color: #94a3b8; margin-bottom: 24px; }
+    a {
+      display: inline-block;
+      padding: 12px 32px;
+      background: linear-gradient(90deg, #0ea5e9, #06b6d4);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+    a:hover { transform: scale(1.05); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Redirecting...</h1>
+    <p>Taking you to the affiliate partner page.</p>
+    <a href="/">Back to Home</a>
+  </div>
+  <script>
+    // Auto-redirect to home after 2 seconds
+    setTimeout(() => { window.location.href = '/'; }, 2000);
+  </script>
+</body>
+</html>
