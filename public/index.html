@@ -111,8 +111,8 @@
 
   <section class="hero">
     <div class="container">
-      <h1>Premium <span class="tech-badge">Gaming & PC Tech</span> Reviews</h1>
-      <p>Expert buying guides for high-end gaming laptops, OLED monitors, mechanical keyboards, and enthusiast PC components. Find the best gear with Amazon links.</p>
+      <h1>Premium <span class="tech-badge">Gaming & PC Tech</span> Products</h1>
+      <p>Hand-picked high-end gaming laptops, OLED monitors, mechanical keyboards, and enthusiast PC components. Direct Amazon links to the best gear.</p>
     </div>
   </section>
 
@@ -229,7 +229,7 @@
     </div>
   </section>
 
-  <section class="articles-section">
+  <section class="articles-section" style="display:none;">
     <div class="container">
       <div class="section-header"><h2>📝 Latest Reviews & Buying Guides</h2><a href="/admin" class="read-more">Admin →</a></div>
       <div class="articles-grid" id="articles-grid"></div>
@@ -344,13 +344,13 @@
       `).join('');
     }
 
-    // Category click handlers
+    // Category click handlers - scroll to products section
     document.querySelectorAll('nav a[href^="#"]').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const category = link.getAttribute('href').substring(1);
-        filterArticles(category);
-        document.getElementById('articles-grid').scrollIntoView({ behavior: 'smooth' });
+        filterProducts(category);
+        document.getElementById('featured').scrollIntoView({ behavior: 'smooth' });
       });
     });
 
@@ -360,39 +360,50 @@
         const href = card.getAttribute('href');
         if (href) {
           const category = href.substring(1);
-          filterArticles(category);
-          document.getElementById('articles-grid').scrollIntoView({ behavior: 'smooth' });
+          filterProducts(category);
+          document.getElementById('featured').scrollIntoView({ behavior: 'smooth' });
         }
       });
     });
 
-    function filterArticles(category) {
-      const grid = document.getElementById('articles-grid');
-      const catKey = Object.keys(categoryMap).find(k => k === category);
-      const catName = categoryMap[catKey];
+    function filterProducts(category) {
+      const grid = document.getElementById('tools-grid');
+      const sectionTitle = document.querySelector('#featured .section-header h2');
       
-      // Filter featured tech by category
+      // Map category names to search terms
+      const categoryTerms = {
+        'laptops': ['laptop', 'gaming laptop', 'alienware', 'msi titan', 'rog scar'],
+        'monitors': ['monitor', 'oled', 'ultrawide', '144hz', '240hz'],
+        'keyboards': ['keyboard', 'keychron', 'wooting', 'mechanical'],
+        'mice': ['mouse', 'viper', 'logitech', 'g pro'],
+        'audio': ['headset', 'audio', 'audeze', 'steelseries', 'arctis'],
+        'storage': ['ssd', 'storage', 'nvme', '990 pro', 'wd black'],
+        'cpus': ['cpu', 'processor', 'ryzen', 'intel core', 'amd'],
+        'gpus': ['gpu', 'graphics', 'rtx', 'radeon', 'rx 7900']
+      };
+      
+      const terms = categoryTerms[category] || [category];
+      
+      // Filter products by category
       const filtered = featuredTech.filter(t => {
-        const tags = t.tags.map(tag => tag.toLowerCase());
-        return tags.some(tag => tag.includes(category)) || 
-               t.name.toLowerCase().includes(category) ||
-               (catName && t.tags.some(tag => catName.toLowerCase().includes(tag.toLowerCase())));
+        const searchText = (t.name + ' ' + t.tags.join(' ') + ' ' + t.specs).toLowerCase();
+        return terms.some(term => searchText.includes(term));
       });
       
       if (filtered.length === 0) {
-        // Show sample articles
-        grid.innerHTML = getSampleArticlesHTML();
+        // If no matches, show all products
+        sectionTitle.textContent = '🔥 All High-End Tech';
+        loadFeaturedTech();
       } else {
-        grid.innerHTML = filtered.map(product => `
-          <article class="article-card">
-            <img src="https://m.media-amazon.com/images/I/${product.asin}._SL500_.jpg" alt="${product.name}" class="article-image" onerror="this.src='https://image.pollinations.ai/prompt/${encodeURIComponent(product.name + ' product photo dark background')}?width=800&height=400'">
-            <div class="article-content">
-              <span class="article-category">${product.tags.map(t => t).slice(0, 2).join(' • ')}</span>
-              <h3 class="article-title"><a href="${getAmazonLink(product.asin)}" target="_blank" rel="nofollow sponsored">${product.name} Review 2026 - Is It Worth ${product.price}?</a></h3>
-              <p class="article-excerpt">${product.specs}. Comprehensive analysis of performance, value, and whether this premium ${product.tags[0].toLowerCase()} delivers for ${product.price}.</p>
-              <div class="article-meta"><span>★ ${product.rating} Rating</span><a href="${getAmazonLink(product.asin)}" class="read-more" target="_blank" rel="nofollow sponsored">Check Price →</a></div>
-            </div>
-          </article>
+        sectionTitle.textContent = '🔥 ' + (categoryMap[category] || category.charAt(0).toUpperCase() + category.slice(1));
+        grid.innerHTML = filtered.map(t => `
+          <div class="tool-card">
+            <div class="tool-header"><span class="tool-name">${t.name}</span><span class="tool-rating">★ ${t.rating}</span></div>
+            <div class="tool-pricing">${t.price}</div>
+            <div class="tool-specs">${t.specs}</div>
+            <div class="tool-tags">${t.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('')}</div>
+            <a href="https://www.amazon.com/s?k=${encodeURIComponent(t.name)}&tag=jarvistaps-20" class="tool-link" target="_blank" rel="nofollow sponsored">View on Amazon →</a>
+          </div>
         `).join('');
       }
     }
