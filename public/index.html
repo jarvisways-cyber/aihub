@@ -40,9 +40,25 @@
     body {
       font-family: 'JetBrains Mono', 'Fira Code', monospace;
       background: var(--bg);
+      background-image: url('/assets/background.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       color: var(--text);
       line-height: 1.6;
       font-size: 14px;
+    }
+    
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 10, 10, 0.85);
+      pointer-events: none;
+      z-index: -1;
     }
     
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -131,6 +147,7 @@
         <nav>
           <ul>
             <li><a href="#products">products</a></li>
+            <li><a href="/articles">articles</a></li>
             <li><a href="/admin">admin</a></li>
           </ul>
         </nav>
@@ -172,217 +189,217 @@
           <div class="product-price">$699</div>
           <div class="product-specs">16-Core, 144MB Cache, 3D V-Cache</div>
           <div class="product-tags"><span class="product-tag">CPU</span><span class="product-tag">GAMING KING</span></div>
-          <a href="https://www.amazon.com/s?k=AMD+Ryzen+9+9950X3D&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=amd-ryzen-9-9950x3d&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">NVIDIA RTX 4090</div>
           <div class="product-price">$1,599</div>
           <div class="product-specs">24GB GDDR6X, DLSS 3.5, 4K</div>
           <div class="product-tags"><span class="product-tag">GPU</span><span class="product-tag">4K</span></div>
-          <a href="https://www.amazon.com/s?k=NVIDIA+RTX+4090&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=nvidia-rtx-4090&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Razer Viper V3 Pro</div>
           <div class="product-price">$159</div>
           <div class="product-specs">54g, Focus Pro 35K, 8KHz</div>
           <div class="product-tags"><span class="product-tag">MOUSE</span><span class="product-tag">WIRELESS</span></div>
-          <a href="https://www.amazon.com/s?k=Razer+Viper+V3+Pro&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=razer-viper-v3-pro&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Keychron Q1 Pro</div>
           <div class="product-price">$199</div>
           <div class="product-specs">75% Layout, QMK/VIA, Wireless</div>
           <div class="product-tags"><span class="product-tag">KEYBOARD</span><span class="product-tag">WIRELESS</span></div>
-          <a href="https://www.amazon.com/s?k=Keychron+Q1+Pro&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=keychron-q1-pro&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Wooting 60HE</div>
           <div class="product-price">$175</div>
           <div class="product-specs">60% Analog, Rapid Trigger</div>
           <div class="product-tags"><span class="product-tag">KEYBOARD</span><span class="product-tag">ANALOG</span></div>
-          <a href="https://www.amazon.com/s?k=Wooting+60HE&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=wooting-60he&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Audeze Maxwell</div>
           <div class="product-price">$299</div>
           <div class="product-specs">Planar Magnetic, 80hr Battery</div>
           <div class="product-tags"><span class="product-tag">AUDIO</span><span class="product-tag">PLANAR</span></div>
-          <a href="https://www.amazon.com/s?k=Audeze+Maxwell&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=audeze-maxwell&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">SteelSeries Arctis Nova Pro</div>
           <div class="product-price">$349</div>
           <div class="product-specs">Wireless, ANC, Hi-Res Audio</div>
           <div class="product-tags"><span class="product-tag">AUDIO</span><span class="product-tag">ANC</span></div>
-          <a href="https://www.amazon.com/s?k=SteelSeries+Arctis+Nova+Pro&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=steelseries-arctis-nova-pro&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Samsung 990 Pro 4TB</div>
           <div class="product-price">$329</div>
           <div class="product-specs">7,450 MB/s, PCIe 4.0</div>
           <div class="product-tags"><span class="product-tag">STORAGE</span><span class="product-tag">4TB</span></div>
-          <a href="https://www.amazon.com/s?k=Samsung+990+Pro+4TB&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=samsung-990-pro-4tb&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Logitech G Pro X Superlight 2</div>
           <div class="product-price">$159</div>
           <div class="product-specs">60g, HERO 2 32K</div>
           <div class="product-tags"><span class="product-tag">MOUSE</span><span class="product-tag">PRO</span></div>
-          <a href="https://www.amazon.com/s?k=Logitech+G+Pro+X+Superlight+2&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=logitech-g-pro-superlight-2&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Alienware m18 R2</div>
           <div class="product-price">$3,199</div>
           <div class="product-specs">RTX 4090, 64GB RAM</div>
           <div class="product-tags"><span class="product-tag">LAPTOP</span><span class="product-tag">DESKTOP REPLACEMENT</span></div>
-          <a href="https://www.amazon.com/s?k=Alienware+m18+R2&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=alienware-m18-r2&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">AMD Ryzen 7 7800X3D</div>
           <div class="product-price">$399</div>
           <div class="product-specs">8-Core, 104MB Cache</div>
           <div class="product-tags"><span class="product-tag">CPU</span><span class="product-tag">VALUE KING</span></div>
-          <a href="https://www.amazon.com/s?k=AMD+Ryzen+7+7800X3D&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=amd-ryzen-7-7800x3d&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">RX 7900 XTX</div>
           <div class="product-price">$999</div>
           <div class="product-specs">24GB VRAM, 4K Value</div>
           <div class="product-tags"><span class="product-tag">GPU</span><span class="product-tag">AMD</span></div>
-          <a href="https://www.amazon.com/s?k=RX+7900+XTX&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=amd-rx-7900-xtx&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Corsair K70 MAX</div>
           <div class="product-price">$229</div>
           <div class="product-specs">Magnetic Mechanical, OLED</div>
           <div class="product-tags"><span class="product-tag">KEYBOARD</span><span class="product-tag">MAGNETIC</span></div>
-          <a href="https://www.amazon.com/s?k=Corsair+K70+MAX&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=corsair-k70-max&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">HyperX Cloud Alpha</div>
           <div class="product-price">$159</div>
           <div class="product-specs">300hr Battery</div>
           <div class="product-tags"><span class="product-tag">AUDIO</span><span class="product-tag">LONG BATTERY</span></div>
-          <a href="https://www.amazon.com/s?k=HyperX+Cloud+Alpha+Wireless&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=hyperx-cloud-alpha&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Crucial T700 2TB</div>
           <div class="product-price">$249</div>
           <div class="product-specs">12,400 MB/s, PCIe 5.0</div>
           <div class="product-tags"><span class="product-tag">STORAGE</span><span class="product-tag">PCIe 5</span></div>
-          <a href="https://www.amazon.com/s?k=Crucial+T700+PCIe+5&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=crucial-t700-2tb&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Logitech G915 TKL</div>
           <div class="product-price">$199</div>
           <div class="product-specs">Wireless, LIGHTSPEED</div>
           <div class="product-tags"><span class="product-tag">KEYBOARD</span><span class="product-tag">WIRELESS</span></div>
-          <a href="https://www.amazon.com/s?k=Logitech+G915+TKL&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=logitech-g915-tkl&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">MSI Titan GT77 HX</div>
           <div class="product-price">$4,299</div>
           <div class="product-specs">RTX 4090, 4K Mini LED</div>
           <div class="product-tags"><span class="product-tag">LAPTOP</span><span class="product-tag">ULTIMATE</span></div>
-          <a href="https://www.amazon.com/s?k=MSI+Titan+GT77+HX&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=msi-titan-gt77&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Razer Blade 18</div>
           <div class="product-price">$2,799</div>
           <div class="product-specs">RTX 4080, i9-13950HX</div>
           <div class="product-tags"><span class="product-tag">LAPTOP</span><span class="product-tag">PREMIUM</span></div>
-          <a href="https://www.amazon.com/s?k=Razer+Blade+18&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=razer-blade-18&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">LG 27GP950-B</div>
           <div class="product-price">$796</div>
           <div class="product-specs">27" 4K Nano IPS, 144Hz</div>
           <div class="product-tags"><span class="product-tag">MONITOR</span><span class="product-tag">4K</span></div>
-          <a href="https://www.amazon.com/s?k=LG+27GP950-B&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=lg-27gp950-b&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Intel Core Ultra 9 285K</div>
           <div class="product-price">$629</div>
           <div class="product-specs">24-Core, AI NPU</div>
           <div class="product-tags"><span class="product-tag">CPU</span><span class="product-tag">AI READY</span></div>
-          <a href="https://www.amazon.com/s?k=Intel+Core+Ultra+9+285K&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=intel-core-ultra-9-285k&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Apple Mac Mini M4</div>
           <div class="product-price">$599</div>
           <div class="product-specs">16GB Unified Memory, 256GB SSD, Apple Intelligence</div>
           <div class="product-tags"><span class="product-tag">MINI PC</span><span class="product-tag">APPLE M4</span><span class="product-tag">HOT</span></div>
-          <a href="https://www.amazon.com/s?k=Apple+Mac+Mini+M4&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=apple-mac-mini-m4&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Mac Mini M4 Pro</div>
           <div class="product-price">$1,399</div>
           <div class="product-specs">24GB Unified Memory, 512GB SSD, 14-core CPU</div>
           <div class="product-tags"><span class="product-tag">MINI PC</span><span class="product-tag">M4 PRO</span><span class="product-tag">PRO</span></div>
-          <a href="https://www.amazon.com/s?k=Mac+Mini+M4+Pro&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=mac-mini-m4-pro&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Beelink SER8 AMD</div>
           <div class="product-price">$599</div>
           <div class="product-specs">AMD Ryzen 7 8845HS, 32GB DDR5, 1TB NVMe</div>
           <div class="product-tags"><span class="product-tag">MINI PC</span><span class="product-tag">32GB RAM</span><span class="product-tag">VALUE</span></div>
-          <a href="https://www.amazon.com/s?k=Beelink+SER8&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=beelink-ser8-amd&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Minisforum UM890 Pro</div>
           <div class="product-price">$749</div>
           <div class="product-specs">AMD Ryzen 9 8945HS, 32GB DDR5, 1TB SSD</div>
           <div class="product-tags"><span class="product-tag">MINI PC</span><span class="product-tag">RYZEN 9</span><span class="product-tag">PRO</span></div>
-          <a href="https://www.amazon.com/s?k=Minisforum+UM890+Pro&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=minisforum-um890-pro&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">GMKtec NucBox G2</div>
           <div class="product-price">$449</div>
           <div class="product-specs">Intel Core i7-12650H, 32GB DDR5, 1TB SSD</div>
           <div class="product-tags"><span class="product-tag">MINI PC</span><span class="product-tag">32GB RAM</span><span class="product-tag">INTEL</span></div>
-          <a href="https://www.amazon.com/s?k=GMKtec+NucBox&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=gmktec-nucbox-g2&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Intel NUC 12 Pro</div>
           <div class="product-price">$699</div>
           <div class="product-specs">Core i7-1260P, 32GB RAM, 1TB SSD</div>
           <div class="product-tags"><span class="product-tag">NUC</span><span class="product-tag">INTEL</span><span class="product-tag">PRO</span></div>
-          <a href="https://www.amazon.com/s?k=Intel+NUC+12+Pro&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=intel-nuc-12-pro&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Beelink SEi12 Pro</div>
           <div class="product-price">$549</div>
           <div class="product-specs">Intel Core i7-12650H, 32GB DDR5, 500GB SSD</div>
           <div class="product-tags"><span class="product-tag">MINI PC</span><span class="product-tag">32GB RAM</span><span class="product-tag">INTEL</span></div>
-          <a href="https://www.amazon.com/s?k=Beelink+SEi12+Pro&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=beelink-sei12-pro&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">Minisforum Neptune HX99G</div>
           <div class="product-price">$899</div>
           <div class="product-specs">AMD Ryzen 9 6900HX, 32GB DDR5, RX 6600M GPU</div>
           <div class="product-tags"><span class="product-tag">MINI PC</span><span class="product-tag">dGPU</span><span class="product-tag">GAMING</span></div>
-          <a href="https://www.amazon.com/s?k=Minisforum+Neptune+HX99G&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=minisforum-neptune-hx99g&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">AYANEO 2S Mini PC</div>
           <div class="product-price">$799</div>
           <div class="product-specs">AMD Ryzen 7 7840U, 32GB LPDDR5, 1TB SSD</div>
           <div class="product-tags"><span class="product-tag">MINI PC</span><span class="product-tag">GAMING</span><span class="product-tag">32GB</span></div>
-          <a href="https://www.amazon.com/s?k=AYANEO+2S+Mini+PC&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=ayaneo-2s-mini-pc&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">ASUS PN53</div>
           <div class="product-price">$549</div>
           <div class="product-specs">AMD Ryzen 7 7735HS, 32GB DDR5, 1TB NVMe</div>
           <div class="product-tags"><span class="product-tag">MINI PC</span><span class="product-tag">ASUS</span><span class="product-tag">32GB</span></div>
-          <a href="https://www.amazon.com/s?k=ASUS+PN53&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=asus-pn53&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
         <div class="product-card">
           <div class="product-name">HP Z2 Mini G9</div>
           <div class="product-price">$1,299</div>
           <div class="product-specs">Intel Core i7-13700K, 32GB ECC RAM, RTX A2000</div>
           <div class="product-tags"><span class="product-tag">WORKSTATION</span><span class="product-tag">ECC</span><span class="product-tag">PRO</span></div>
-          <a href="https://www.amazon.com/s?k=HP+Z2+Mini+G9&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
+          <a href="https://www.amazon.com/s?k=hp-z2-mini-g9&tag=jarvistaps-20" class="product-link" target="_blank" rel="nofollow sponsored">ACCESS</a>
         </div>
       </div>
     </div>
