@@ -43,9 +43,9 @@
     
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     
-    header { background: var(--panel); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    header { background: transparent; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
     
-    .terminal-bar { background: var(--bg-alt); padding: 8px 20px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); }
+    .terminal-bar { background: rgba(13, 17, 23, 0.8); padding: 8px 20px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); }
     .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
     .terminal-dot.red { background: #ff5f56; }
     .terminal-dot.yellow { background: #ffbd2e; }
@@ -72,7 +72,7 @@
     .hero .status::before { content: ''; width: 8px; height: 8px; background: var(--primary); border-radius: 50%; animation: blink 1s infinite; }
     @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0.3; } }
     
-    .products-section { padding: 60px 0; background: var(--bg); }
+    .products-section { padding: 60px 0; background: rgba(10, 10, 10, 0.8); }
     .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 15px; border-bottom: 1px solid var(--border); }
     .section-header h2 { font-size: 1.2rem; color: var(--secondary); font-weight: 500; }
     .section-header h2::before { content: '// '; color: var(--text-dim); }
