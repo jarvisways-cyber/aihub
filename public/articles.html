@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tech Gateway Articles - Expert reviews and buying guides for gaming laptops, monitors, peripherals and PC hardware.">
+  <title>Articles // Tech Gateway</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { 
+      --primary: #00ff41;
+      --secondary: #00d5ff;
+      --accent: #ff3366;
+      --bg: #0a0a0a;
+      --bg-alt: #0d1117;
+      --panel: #161b22;
+      --border: #1a1a1a;
+      --text: #c9d1d9;
+      --text-dim: #6e7681;
+    }
+    body { font-family: 'JetBrains Mono', monospace; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+    header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 20px 0; }
+    .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+    .logo { font-size: 1.3rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+    .logo span { color: var(--secondary); }
+    .logo::before { content: '>'; margin-right: 8px; color: var(--text-dim); }
+    nav a { color: var(--text-dim); text-decoration: none; margin-left: 20px; font-size: 13px; }
+    nav a:hover { color: var(--primary); }
+    h1 { font-size: 2rem; margin-bottom: 10px; color: var(--secondary); }
+    h1::before { content: '// '; color: var(--text-dim); }
+    .subtitle { color: var(--text-dim); margin-bottom: 40px; }
+    .articles-grid { display: grid; gap: 20px; }
+    .article-card { background: var(--panel); border: 1px solid var(--border); padding: 25px; border-radius: 8px; text-decoration: none; transition: all 0.2s; }
+    .article-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .article-card h2 { color: var(--text); font-size: 1.2rem; margin-bottom: 10px; }
+    .article-card p { color: var(--text-dim); font-size: 13px; margin-bottom: 15px; }
+    .article-meta { display: flex; gap: 15px; font-size: 11px; color: var(--text-dim); }
+    .article-meta span { background: rgba(0,213,255,0.1); padding: 3px 8px; border-radius: 3px; color: var(--secondary); }
+    .no-articles { text-align: center; padding: 60px; color: var(--text-dim); }
+    .generate-btn { display: inline-block; background: var(--primary); color: var(--bg); padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 600; margin-top: 20px; }
+    .jarvis-badge { position: fixed; bottom: 20px; right: 20px; background: var(--panel); border: 1px solid var(--primary); padding: 8px 16px; border-radius: 4px; display: flex; align-items: center; gap: 8px; color: var(--primary); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; z-index: 1000; }
+    .jarvis-badge img { width: 16px; height: 16px; border-radius: 50%; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">Tech<span>Gateway</span></a>
+      <nav>
+        <a href="/">products</a>
+        <a href="/articles">articles</a>
+        <a href="/admin">admin</a>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <h1>ARTICLES</h1>
+    <p class="subtitle">Expert reviews, buying guides, and tech insights</p>
+    <div id="articles-grid" class="articles-grid"></div>
+  </div>
+  <div class="jarvis-badge">
+    <img src="/assets/jarvis-emblem.jpg" alt="JARVIS">
+    <span>Ran by JARVIS</span>
+  </div>
+  <script>
+    async function loadArticles() {
+      try {
+        const res = await fetch('/api/articles');
+        const articles = await res.json();
+        const grid = document.getElementById('articles-grid');
+        if (!articles.length) {
+          grid.innerHTML = '<div class="no-articles"><p>No articles yet.</p><a href="/admin" class="generate-btn">Generate Articles</a></div>';
+          return;
+        }
+        grid.innerHTML = articles.map(a => `
+          <a href="/articles/${a.slug}" class="article-card">
+            <h2>${a.title}</h2>
+            <p>${a.excerpt || a.description}</p>
+            <div class="article-meta">
+              <span>${a.category}</span>
+              <span>${new Date(a.date).toLocaleDateString()}</span>
+            </div>
+          </a>
+        `).join('');
+      } catch(e) {
+        document.getElementById('articles-grid').innerHTML = '<div class="no-articles">Error loading articles</div>';
+      }
+    }
+    loadArticles();
+  </script>
+</body>
+</html>

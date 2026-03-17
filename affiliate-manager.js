@@ -5,7 +5,7 @@ class AffiliateManager {
   constructor() {
     this.dataDir = path.join(__dirname, 'data');
     this.ensureDataDir();
-    this.amazonTag = 'jarvistaps-20';
+    this.amazonTag = 'jarvistaps-20'.trim();
     this.loadAffiliatePrograms();
   }
 
@@ -373,7 +373,7 @@ class AffiliateManager {
   }
 
   generateAmazonLink(asin, tag = this.amazonTag) {
-    return `https://www.amazon.com/dp/${asin}?tag=${tag}&linkCode=ogi&th=1&psc=1`;
+    return `https://www.amazon.com/gp/product/${asin}?tag=${tag}&linkCode=ll`;
   }
 
   getProductImageUrl(asin) {
@@ -404,28 +404,67 @@ class AffiliateManager {
 
   // Track clicks
   registerClick(clickData) {
-    const clicksFile = path.join(this.dataDir, 'clicks.json');
-    let clicks = [];
-    
-    if (fs.existsSync(clicksFile)) {
-      try {
-        clicks = JSON.parse(fs.readFileSync(clicksFile, 'utf8'));
-      } catch {
-        clicks = [];
-      }
-    }
-    
-    clicks.push({
-      ...clickData,
-      timestamp: new Date().toISOString()
-    });
-    
-    if (clicks.length > 2000) {
-      clicks = clicks.slice(-2000);
-    }
-    
-    fs.writeFileSync(clicksFile, JSON.stringify(clicks, null, 2));
+    // Skip file writing on serverless (Vercel) - just log for now
+    console.log('Click registered:', clickData);
     return true;
+  }
+
+  // Get affiliate link by slug (for dynamic /go/:slug routes)
+  getAffiliateLinkBySlug(slug) {
+    // Try to find product by slugified name
+    const slugMap = {
+      'asus-rog-strix-scar-18': 'ASUS ROG Strix SCAR 18',
+      'alienware-m18-r2': 'Alienware m18 R2',
+      'msi-titan-gt77': 'MSI Titan GT77 HX',
+      'razer-blade-18': 'Razer Blade 18',
+      'samsung-odyssey-oled-g9': 'Samsung Odyssey OLED G9',
+      'asus-rog-swift-pg32ucdm': 'ASUS ROG Swift PG32UCDM',
+      'lg-ultragear-45gs95qe': 'LG UltraGear 45GS95QE',
+      'lg-32gs95ue-oled': 'LG 32GS95UE OLED',
+      'keychron-q1-pro': 'Keychron Q1 Pro',
+      'wooting-60he': 'Wooting 60HE',
+      'nuphy-air75-v2': 'NuPhy Air75 V2',
+      'asus-rog-azoth': 'ASUS ROG Azoth',
+      'razer-viper-v3-pro': 'Razer Viper V3 Pro',
+      'logitech-g-pro-superlight-2': 'Logitech G Pro X Superlight 2',
+      'asus-rog-harpe-ace': 'ASUS ROG Harpe Ace',
+      'steelseries-arctis-nova-pro': 'SteelSeries Arctis Nova Pro',
+      'audeze-maxwell': 'Audeze Maxwell',
+      'sony-inzone-h9': 'Sony INZONE H9',
+      'samsung-990-pro-4tb': 'Samsung 990 Pro 4TB',
+      'wd-black-sn850x-4tb': 'WD Black SN850X 4TB',
+      'crucial-t700-4tb': 'Crucial T700 4TB',
+      'amd-ryzen-9-9950x3d': 'AMD Ryzen 9 9950X3D',
+      'intel-core-ultra-9-285k': 'Intel Core Ultra 9 285K',
+      'amd-ryzen-7-9800x3d': 'AMD Ryzen 7 9800X3D',
+      'nvidia-rtx-4090': 'NVIDIA RTX 4090',
+      'amd-rx-7900-xtx': 'AMD RX 7900 XTX',
+      'nvidia-rtx-4080-super': 'NVIDIA RTX 4080 Super',
+      'corsair-k70-max': 'Corsair K70 MAX',
+      'hyperx-cloud-alpha': 'HyperX Cloud Alpha',
+      'crucial-t700-2tb': 'Crucial T700 2TB',
+      'logitech-g915-tkl': 'Logitech G915 TKL',
+      'lg-27gp950-b': 'LG 27GP950-B',
+      'apple-mac-mini-m4': 'Apple Mac Mini M4',
+      'mac-mini-m4-pro': 'Mac Mini M4 Pro',
+      'beelink-ser8-amd': 'Beelink SER8 AMD',
+      'minisforum-um890-pro': 'Minisforum UM890 Pro',
+      'gmktec-nucbox-g2': 'GMKtec NucBox G2',
+      'intel-nuc-12-pro': 'Intel NUC 12 Pro',
+      'beelink-sei12-pro': 'Beelink SEi12 Pro',
+      'minisforum-neptune-hx99g': 'Minisforum Neptune HX99G',
+      'ayaneo-2s-mini-pc': 'AYANEO 2S Mini PC',
+      'asus-pn53': 'ASUS PN53',
+      'hp-z2-mini-g9': 'HP Z2 Mini G9',
+      'amd-ryzen-7-7800x3d': 'AMD Ryzen 7 7800X3D'
+    };
+    
+    const productName = slugMap[slug];
+    if (productName) {
+      return `https://www.amazon.com/s?k=${encodeURIComponent(productName)}&tag=${this.amazonTag}`;
+    }
+    
+    return null;
   }
 
   // Track conversions (manual entry for now)
